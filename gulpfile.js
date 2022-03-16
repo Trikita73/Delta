@@ -14,7 +14,10 @@ const concat       = require('gulp-concat');
 const uglify       = require('gulp-uglify-es').default;
 
 // Подключаем модули gulp-sass и gulp-less
-const sass         = require('gulp-sass');
+
+// const sass         = require('gulp-sass');
+
+const sass = require('gulp-sass')(require('sass'));
 const less         = require('gulp-less');
 
 // Подключаем Autoprefixer
@@ -24,7 +27,7 @@ const autoprefixer = require('gulp-autoprefixer');
 const cleancss     = require('gulp-clean-css');
 
 // Подключаем gulp-imagemin для работы с изображениями
-const imagemin     = require('gulp-imagemin');
+// const imagemin     = require('gulp-imagemin');
 
 // Подключаем модуль gulp-newer
 const newer        = require('gulp-newer');
@@ -62,16 +65,16 @@ function styles() {
 	.pipe(browserSync.stream()) // Сделаем инъекцию в браузер
 }
 
-function images() {
-	return src('app/img/src/**/*') // Берём все изображения из папки источника
-	.pipe(newer('app/img/dest/')) // Проверяем, было ли изменено (сжато) изображение ранее
-	.pipe(imagemin()) // Сжимаем и оптимизируем изображеня
-	.pipe(dest('app/img/dest/')) // Выгружаем оптимизированные изображения в папку назначения
-}
+// function images() {
+// 	return src('app/img/src/**/*') // Берём все изображения из папки источника
+// 	.pipe(newer('app/img/dest/')) // Проверяем, было ли изменено (сжато) изображение ранее
+// 	.pipe(imagemin()) // Сжимаем и оптимизируем изображеня
+// 	.pipe(dest('app/img/dest/')) // Выгружаем оптимизированные изображения в папку назначения
+// }
 
-function cleanimg() {
-	return del('app/img/dest/**/*', { force: true }) // Удаляем всё содержимое папки "app/images/dest/"
-}
+// function cleanimg() {
+// 	return del('app/img/dest/**/*', { force: true }) // Удаляем всё содержимое папки "app/images/dest/"
+// }
 
 function cleandist() { 
 	return del('dist/**/*', { force: true }) // Удаляем всё содержимое папки "dist/"
@@ -91,7 +94,7 @@ function startwatch() {
 	watch('app/**/' + preprocessor + '/**/*', styles); // Мониторим файлы препроцессора на изменения
 	watch(['app/**/*.js', '!app/**/*.min.js'], scripts); // Выбираем все файлы JS в проекте, а затем исключим с суффиксом .min.js
 	watch('app/**/*.html').on('change', browserSync.reload); // Мониторим файлы HTML на изменения
-	watch('app/img/src/**/*', images); // Мониторим папку-источник изображений и выполняем images(), если есть изменения
+	//watch('app/img/src/**/*', images); // Мониторим папку-источник изображений и выполняем images(), если есть изменения
 }
 
 // Экспортируем функцию browsersync() как таск browsersync. Значение после знака = это имеющаяся функция.
@@ -104,13 +107,13 @@ exports.scripts     = scripts;
 exports.styles      = styles;
 
 // Экспорт функции images() в таск images
-exports.images    	= images;
+// exports.images    	= images;
 
 // Экспортируем функцию cleanimg() как таск cleanimg
-exports.cleanimg    = cleanimg;
+// exports.cleanimg    = cleanimg;
 
 // Создаём новый таск "build", который последовательно выполняет нужные операции
-exports.build       = series(cleandist, styles, scripts, images, buildcopy);
+exports.build       = series(cleandist, styles, scripts, buildcopy);
 
 // Экспортируем дефолтный таск с нужным набором функций
 exports.default     = parallel(styles, scripts, browsersync, startwatch);
