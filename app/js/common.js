@@ -31,4 +31,4 @@ $(document).ready(function () {
 		$('.mobile_menu').stop().slideToggle();
 	});
 
-});
+}); 
