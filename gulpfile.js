@@ -47,6 +47,7 @@ function browsersync() {
 function scripts() {
 	return src([ // Берём файлы из источников
 		'node_modules/jquery/dist/jquery.min.js', // Пример подключения библиотеки
+		'app/libs/likely/likely.js',
 		'app/js/common.js', // Пользовательские скрипты, использующие библиотеку, должны быть подключены в конце
 	])
 	.pipe(concat('common.min.js'))	// Конкатенируем в один файл
