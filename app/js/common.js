@@ -31,4 +31,12 @@ $(document).ready(function () {
 		$('.mobile_menu').stop().slideToggle();
 	});
 
+	/* Section_reviews */
+	$('.col_item').hover(function() {
+		ths = $(this);
+		lnk = ths.closest('.col_item').find('h4 a');
+		lnk.addClass('hover');
+	}, function() {
+		lnk.removeClass('hover');
+	});
 }); 
