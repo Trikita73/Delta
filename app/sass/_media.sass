@@ -8,12 +8,70 @@
 
 // ≥992px
 +media-breakpoint-down(md)
+    .main_menu 
+        display: none
+        padding: 20px
+
+    .mobile_menu_button 
+        display: block
+
+    .item_title
+        &_content
+            padding: 40px 30px
+    
+    .second_news, .section_reviews
+        padding: $gutter/2 0
+
+    .section_reviews 
+        padding: $gutter 0 30px 
+        >div > div > div:last-of-type
+            .col_item
+                border-bottom: 0
+                padding-bottom: 0
+                margin-bottom: 0
 
 // ≥768px
 +media-breakpoint-down(sm)
+    .first_section
+        padding:
+            top: $gutter/2
 
+    .container-fluid 
+        padding: 0 $gutter/2 
+
+    .top_ad
+        margin-bottom: $gutter/2
+
+    .no-gutters
+        .pattern
+            margin-bottom: $gutter/2 
+
+    .item_news 
+        margin: $gutter/2 0 0 
+
+    .col_item 
+        margin-bottom: $gutter/2 
+        padding-bottom: $gutter
+        border-bottom: 1px solid rgba(#fff, .05)
+        &_meta, h4
+            padding: 0 $gutter 
+        a
+            img 
+                margin-bottom: $gutter/2
+        .col_item_meta
+            margin-bottom: 5px
+    
+    .type_one
+        .pattern
+            margin-bottom: $gutter/2
+        
 // ≥576px
 +media-breakpoint-down(xs)
+    .logo 
+        font-size: 19px
+        
+    .lifehacks_section
+        padding: $gutter/1.5 0
 
 
 /*==========  Mobile First  ==========*/
