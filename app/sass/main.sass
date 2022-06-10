@@ -628,6 +628,10 @@ nav.soc
 	background-color: transparent
 	padding: 0
 
+.cat_list
+	padding-top: $gutter
+	background-color: #fff
+
 a.cat_list_item
 	color: $text-color
 	display: block
@@ -639,9 +643,113 @@ a.cat_list_item
 	border-bottom: 1px solid #dfdfdf
 	h2, h3
 		transition: color .25s ease
+		line-height: 1.2
+		font-size: 21px
+		font-weight: 800
+		margin: 0
 	img
 		transition: opacity .25s ease 
 		margin-bottom: 12px
+	p
+		font-size: 15.4px 
+		margin-top: 10px
+	.date
+		margin-top: 5px
+	&:hover
+		.pattern
+			&:before
+				top: 10px
+				right: 10px
+				bottom: 10px
+				left: 10px
+				opacity: 0.2
+				z-index: 10
+			img
+				opacity: 0.75
+		h2, h3
+			text-decoration: underline
+			color: $accent
+		p
+			color: $text-color			
+	&:last-child
+		border-bottom: none
+
+// Category_aside //
+
+.main_aside
+	margin-bottom: $gutter
+
+.lb_header
+	border-bottom: 2px solid $accent
+	padding-bottom: 5px
+
+.lb_header, .all_posts_header
+	font-size: 21px
+	text-transform: uppercase
+	font-weight: 800
+	margin: 0
+	text-align: left
+
+.lb_item
+	position: relative
+	padding-left: 120px
+	background-color: #f0f0f0
+	margin-bottom: 2px
+	transition: background-color .25s ease
+	text-align: left
+	&:hover
+		background-color: $accent
+		.lb_catname
+			color: #fff
+	.lb_body
+		background-color: #f9f9f9
+		padding: 10px 15px
+	a
+		color: $text-color
+		transition: color .25s ease
+		&:hover
+			color: $accent
+	&_header
+		font-size: 14px
+		line-height: 1.4
+		display: block
+		font-weight: 500
+	.date
+		display: inline-block
+		margin-left: 20px 
+		color: #aaa
+		margin-top: 0
+	.item_comments
+		.fa
+			font-size: 12px
+			margin-right: 5px 
+			color: #aaa
+		.item_comments_count
+			color: #aaa
+			&:hover
+				color: $accent
+				&::before
+					color: #aaa
+
+.lb_catname
+	position: absolute
+	left: 15px
+	top: 15px
+	color: #888
+	font-size: 14px
+	font-weight: 800
+	max-width: 90px
+	transition: color .25s ease
+	text-decoration: none
+	&:hover
+		text-decoration: underline
+		color: #fff
+	&:focus
+		color: #888
+
+.lb_footer
+	line-height: 1.2
+
 
 
 @import "media" // Always at the end
