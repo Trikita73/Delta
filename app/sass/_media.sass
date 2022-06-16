@@ -30,6 +30,11 @@
                 padding-bottom: 0
                 margin-bottom: 0
 
+    .ispage
+        .top_menu
+            top: 65px
+            position: relative
+
 // ≥768px
 +media-breakpoint-down(sm)
     .first_section
@@ -70,7 +75,15 @@
             padding: 50px
             h1, h2
                 font-size: 28px
-        
+
+    .page_header
+        min-height: 360px
+        &_meta
+            h1
+                font-size: 24px   
+                margin: 10px 0 0
+        &.overlay::before
+            background-image: linear-gradient(rgba(#000, .3), rgba(#000, .75))
 // ≥576px
 +media-breakpoint-down(xs)
     .logo 
@@ -96,7 +109,7 @@
         padding-bottom: 0
         
     .all_posts_header
-	    margin-top: $gutter/2
+        margin-top: $gutter/2
 
 /*==========  Mobile First  ==========*/
 
